@@ -10,7 +10,7 @@ import {
   useIonViewDidEnter,
 } from "@ionic/react";
 import React, { useEffect } from "react";
-import { RouteComponentProps } from "react-router";
+import { RouteComponentProps } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 interface DetailProps
@@ -27,6 +27,7 @@ const Detail: React.FC<DetailProps> = ({ match }) => {
   });
   useEffect(() => {
     console.log("mounting useEffect", match.params.id); // fires on mounting
+    return () => console.log("unMounting");
   }, []);
 
   return (
