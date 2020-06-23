@@ -1,0 +1,7 @@
+{
+  "name": "routeParamsBug",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
