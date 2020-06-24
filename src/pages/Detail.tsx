@@ -22,13 +22,13 @@ const Detail: React.FC<DetailProps> = ({ match }) => {
     console.log(
       "useIonViewDidEnter with deps [match.params.id]",
       match.params.id
-    ); // always the initial id
+    ); // always the current id
   }, [match.params.id]);
   useIonViewDidEnter(() => {
-    console.log("useIonViewDidEnter with deps [match.params]", match.params.id); // always the initial id
+    console.log("useIonViewDidEnter with deps [match.params]", match.params.id); // always the current id
   }, [match.params]);
   useIonViewDidEnter(() => {
-    console.log("useIonViewDidEnter without deps", match.params.id); // always the current id
+    console.log("useIonViewDidEnter without deps", match.params.id); // always the initial id
   });
 
   useEffect(() => {
