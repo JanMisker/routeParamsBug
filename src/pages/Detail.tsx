@@ -19,8 +19,14 @@ interface DetailProps
 
 const Detail: React.FC<DetailProps> = ({ match }) => {
   useIonViewDidEnter(() => {
-    console.log("useIonViewDidEnter with deps", match.params.id); // always the initial id
+    console.log(
+      "useIonViewDidEnter with deps [match.params.id]",
+      match.params.id
+    ); // always the initial id
   }, [match.params.id]);
+  useIonViewDidEnter(() => {
+    console.log("useIonViewDidEnter with deps [match.params]", match.params.id); // always the initial id
+  }, [match.params]);
   useIonViewDidEnter(() => {
     console.log("useIonViewDidEnter without deps", match.params.id); // always the current id
   });
