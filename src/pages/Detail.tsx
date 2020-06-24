@@ -5,7 +5,6 @@ import {
   IonTitle,
   IonToolbar,
   IonButtons,
-  IonButton,
   IonBackButton,
   useIonViewDidEnter,
 } from "@ionic/react";
@@ -20,14 +19,19 @@ interface DetailProps
 
 const Detail: React.FC<DetailProps> = ({ match }) => {
   useIonViewDidEnter(() => {
-    console.log("useIonViewDidEnter ", match.params.id); // always the initial id
+    console.log("useIonViewDidEnter with deps", match.params.id); // always the initial id
+  }, [match.params.id]);
+  useIonViewDidEnter(() => {
+    console.log("useIonViewDidEnter without deps", match.params.id); // always the current id
   });
+
   useEffect(() => {
     console.log("useEffect", match.params.id); // always the current id
   });
   useEffect(() => {
     console.log("mounting useEffect", match.params.id); // fires on mounting
-    return () => console.log("unMounting");
+    return () =>
+      console.log("unMounting component, only when backbutton is used");
   }, []);
 
   return (
